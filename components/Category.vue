@@ -1,7 +1,7 @@
 <template>
   <nav class="panel category">
     <p class="panel-heading is-size-7">
-      下次更新还有：2:02:02
+      2H热门更新还有：2:02:02
     </p>
     <label class="panel-block">
       <b-switch :value="true" size="is-small" type="is-info">

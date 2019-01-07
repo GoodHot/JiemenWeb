@@ -20,7 +20,9 @@ export default {
   components: {Category, Cart},
   async asyncData({ $axios, params }) {
     const result = await $axios.$get(`/collect/${params.id}`)
-    return { categories: result.dataMap.categories, post: result.dataMap.collect }
+    const post = result.dataMap.collect;
+    post.showTitle = true;
+    return { categories: result.dataMap.categories, post: post }
   }
 }
 </script>

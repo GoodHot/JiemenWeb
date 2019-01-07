@@ -31,8 +31,14 @@ export default {
   methods: {
     playVideo(url){
       let video = this.$refs[url];
+      if(!video){
+        return ;
+      }
       if(video.paused){
-        video.play();
+        const playPromise = video.play();
+        if (playPromise !== null){
+            playPromise.catch(() => { video.play(); })
+        }
         this.videoPlayBtn = false;
       } else {
         video.pause();

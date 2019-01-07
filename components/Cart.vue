@@ -1,6 +1,6 @@
 <template>
   <div class="card content-media">
-    <header class="card-header" v-if="post.title">
+    <header class="card-header" v-if="post.showTitle">
       <h2 class="card-header-title">{{post.title}}</h2>
       <a href="#" class="card-header-icon" aria-label="more options">
         <span class="icon">
@@ -21,8 +21,14 @@
         </div>
       </div>
     </div>
-    <CartMedia v-for="item of post.medias" v-bind:key="item.url" :media="item"></CartMedia>
+    <CartMedia v-for="item of post.medias" v-bind:key="item.url" :media="item" ref="media"></CartMedia>
     <footer class="card-footer">
+      <a href="#" class="card-footer-item">
+        <b-icon
+            icon="star-outline"
+            size="is-small">
+        </b-icon> 收藏
+      </a>
       <a href="#" class="card-footer-item">
         <b-icon
             icon="comment-outline"
@@ -60,6 +66,21 @@ export default {
   methods: {
     timeFormat(time){
       return format(time, 'zh_CN');
+    },
+    firstCanPlayMedia(){
+      for(let i=0;i<this.post.medias.length; i++){
+        let m = this.post.medias[i];
+        if(m.type == 'VIDEO'){
+          return m;
+        }
+      }
+      return null;
+    },
+    playMedia(){
+      for(let i=0;i<this.$refs.media.length; i++){
+        let m = this.$refs.media[i];
+        m.playVideo(this.firstCanPlayMedia().url);
+      }
     }
   }
 }
