@@ -35,10 +35,8 @@ export default {
         return ;
       }
       if(video.paused){
-        const playPromise = video.play();
-        if (playPromise !== null){
-            playPromise.catch(() => { video.play(); })
-        }
+        video.load();
+        let playPromise = video.play();
         this.videoPlayBtn = false;
       } else {
         video.pause();
@@ -61,10 +59,6 @@ $bg-blur: 2px;
 
 .cart-media {
   .card-image {
-    // background: linear-gradient(45deg,
-    //           #ddd 25%, #fff 0, #fff 50%,
-    //           #ddd 0, #ddd 75%, #fff 0);
-    // background-size: 20px 20px;
     text-align: center;
     img {
       width: auto;

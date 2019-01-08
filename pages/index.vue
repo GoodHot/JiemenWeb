@@ -59,7 +59,7 @@ export default {
         if (media.type == "VIDEO" || media.type == "COUB") return true;
       }
       return false;
-    }
+    },
     // getPlayCart(playCartArray, index){
     //   if(index < 0 || playCartArray.length >= index){
     //     return null;
@@ -82,13 +82,19 @@ export default {
     }
     let self = this;
     window.addEventListener("scroll", function() {
-      let top = document.documentElement.scrollTop;
+      let top = document.body.scrollTop;
+      if(top == 0){
+        top = document.documentElement.scrollTop;
+      }
       let height = document.documentElement.clientHeight + top;
       let arrow = "down";
       if (top < self.playIndex.scrollTop) {
         arrow = "up";
       }
+      
       let postCart = playCartArray[self.playIndex.index];
+      console.log(postCart);
+      console.log(top + ":" + height);
       if (postCart.top < top && (postCart.height + postCart.top) < height) {
         postCart.post.playMedia();
         if (arrow == "down") {
