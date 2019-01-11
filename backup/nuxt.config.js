@@ -27,7 +27,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/css/new.scss'
+    '@/assets/css/style.scss'
   ],
 
   /*

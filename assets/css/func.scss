@@ -1,0 +1,7 @@
+@mixin align-item {
+  align-items: center;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
