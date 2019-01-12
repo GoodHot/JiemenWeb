@@ -22,7 +22,7 @@
       <div class="navbar-start">
         <a class="navbar-item" href="/new2/story">精选合集</a>
         <a class="navbar-item" href="/new2/news">趣闻</a>
-        <a class="navbar-item">表情包(没做)</a>
+        <a class="navbar-item" href="/new2/emoji">表情包</a>
         <a class="navbar-item">装13图(没做)</a>
         <a class="navbar-item">下载Apps!(没做)</a>
       </div>
