@@ -39,69 +39,6 @@
       
       <li class="item-hr"></li>
 
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-      <li class="item-category">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-        Random
-        <b-switch type="is-warning" size="is-small" :value="true"></b-switch>
-      </li>
-
-      <li class="item-hr"></li>
-
       <li class="item-icon">
         <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M16 9C16 9.55225 16.4478 10 17 10C17.5522 10 18 9.55225 18 9V8H19C19.5522 8 20 7.55225 20 7C20 6.44775 19.5522 6 19 6H18V5C18 4.44775 17.5522 4 17 4C16.4478 4 16 4.44775 16 5V6H15C14.4478 6 14 6.44775 14 7C14 7.55225 14.4478 8 15 8H16V9ZM4 7C4 6.44775 4.44775 6 5 6H12C12.5522 6 13 6.44775 13 7C13 7.55225 12.5522 8 12 8H5C4.44775 8 4 7.55225 4 7ZM4 12C4 11.4478 4.44775 11 5 11H19C19.5522 11 20 11.4478 20 12C20 12.5522 19.5522 13 19 13H5C4.44775 13 4 12.5522 4 12ZM5 16C4.44775 16 4 16.4478 4 17C4 17.5522 4.44775 18 5 18H19C19.5522 18 20 17.5522 20 17C20 16.4478 19.5522 16 19 16H5Z" fill="#999999"></path>
@@ -126,6 +63,16 @@
 
       <li class="item-hr"></li>
 
+      <li class="item-category" v-for="item of category" v-bind:key="item.id">
+        <a href="#">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+        {{item.name}}
+        </a>
+        <!-- <b-switch type="is-warning" size="is-small"></b-switch> -->
+      </li>
+
+      <li class="item-hr"></li>
+
       <li class="item-link">
         <a href="#">Blog</a>
         <a href="#">Apps</a>
@@ -137,12 +84,22 @@
         <a href="#">Apps</a>
         <a href="#">Apps</a>
       </li>
-      <li class="item-text">鄂ICP备11008023号-1</li>
-      <li class="item-text">鄂公网安备42018502002747号</li>
+      <li class="item-text"><a href="http://www.miibeian.gov.cn/">陇ICP备19000187号-1</a></li>
+      <li class="item-text"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51012202000426">川公网安备 51012202000426</a></li>
       <li class="item-text">&copy;2019 JieMen.Fun</li>
     </ul>
   </div>
 </template>
+<script>
+export default {
+  props: {
+    category: {
+      type: Array
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .jm {
   &-fold {
@@ -182,27 +139,30 @@
       }
     }
     .item-category {
-      img {
-        width: 24px;
-        height: 24px;
-        border-radius: 6px;
-        margin-right: .4rem;
-      }
-      label {
-        margin-left: auto;
-        display: none;
-      }
-      &:hover {
-        label {
-          display: inline-flex;
+      a {
+        img {
+          width: 24px;
+          height: 24px;
+          border-radius: 6px;
+          margin-right: .4rem;
         }
+        label {
+          margin-left: auto;
+          display: none;
+        }
+        &:hover {
+          label {
+            display: inline-flex;
+          }
+        }
+        line-height: 3rem;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        color: inherit;
+        cursor: pointer;
       }
-      line-height: 3rem;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      color: inherit;
-      cursor: pointer;
+      
     }
     .item-link {
       &:hover {
@@ -221,6 +181,12 @@
       margin: .7rem 0;
       &:hover {
         background: unset;
+      }
+      a {
+        color: #999;
+        &:hover {
+          color: #000;
+        }
       }
     }
   }

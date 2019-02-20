@@ -3,7 +3,7 @@
     <JMNavbar></JMNavbar>
     <div class="jm-menu" ref="nav" v-bind:class="{ hideMenu: !lockerIsOpen }">
       <HappyScroll>
-        <JMNav></JMNav>
+        <JMNav :category="this.$store.state.category"></JMNav>
       </HappyScroll>
       <button class="locker" @click="hideNav">{{lockerIcon}}</button>
     </div>
@@ -27,6 +27,7 @@ import JMContainer from "@/components/new2/JMContainer";
 import JMNav from "@/components/new2/JMNav";
 import { HappyScroll } from 'vue-happy-scroll';
 import 'vue-happy-scroll/docs/happy-scroll.css';
+
 export default {
   components: {JMNavbar, JMAd, JMContainer, JMNav, HappyScroll},
   layout: "new",

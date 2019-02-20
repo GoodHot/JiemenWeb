@@ -1,19 +1,30 @@
 <template>
   <div class="jm-story">
-    <video preload="auto" poster="https://img-9gag-fun.9cache.com/photo/a1QWDZ2_460swp.webp" loop="loop" ><!----> <source src="https://img-9gag-fun.9cache.com/photo/a1QWDZ2_460svvp9.webm" type="video/webm"> <source src="https://img-9gag-fun.9cache.com/photo/a1QWDZ2_460sv.mp4" type="video/mp4"> <source src="https://img-9gag-fun.9cache.com/photo/a1QWDZ2_460svwm.webm" type="video/webm"></video>
+    <video preload="auto" :poster="data.cover.posterUrl" loop="loop" >
+      <source ：src="data.cover.url" type="video/mp4">
+    </video>
     <span class="cover"></span>
     <div class="category">
-      <span>精选合集</span>&nbsp;&nbsp;|&nbsp;&nbsp;10 posts
+      <span>故事</span>&nbsp;&nbsp;|&nbsp;&nbsp;{{data.medias.length}} posts
     </div>
     <div class="description">
-      <h2>2018年第50周最受欢迎的抖音小姐姐</h2>
+      <h2>{{data.title}}</h2>
       <div>by
         <span class="hbold">Mashups</span>&nbsp;·&nbsp;1613 views
       </div>
     </div>
-    <a href="/new2/story-detail" class="link"></a>
+    <a :href="`/new2/story-detail/${data.id}`" class="link"></a>
   </div>
 </template>
+<script>
+export default {
+  props: {
+    data: {
+      type: Object
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .jm {

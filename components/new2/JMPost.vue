@@ -2,14 +2,13 @@
   <div class="post">
     <div class="post-simple-info" v-if="model == 'min'">
       <div class="info-title">
-        <h5>Marilyn Manson - This Is The New *hit</h5>
+        <h5>{{post.title}}</h5>
         <span>
           Created by <a href="#">张三</a> · 15.321 views
         </span>
       </div>
       <span class="social">
         <JMIconBtn>3.2k</JMIconBtn>
-        <JMIconBtn icon="repost">100</JMIconBtn>
       </span>
     </div>
     <div class="post-author" v-if="model == 'full'">
@@ -17,39 +16,33 @@
         <img src="https://bulma.io/images/placeholders/128x128.png">
       </a>
       <div class="author-title">
-        <h6>啧啧啧啧啧啧做做</h6>
+        <h6>{{post.title}}</h6>
         <span class="name">
           created by <a href="#">小王王</a>
         </span>
       </div>
       <div class="social">
-        <JMIconBtn>3.2k</JMIconBtn>
-        <JMIconBtn icon="repost">100</JMIconBtn>
+        <JMIconBtn>{{post.like}}</JMIconBtn>
+        <JMIconBtn icon="eye" >{{post.views}}</JMIconBtn>
       </div>
     </div>
     <div class="post-player">
-      <JMPlayer></JMPlayer>
+      <JMPlayer :media="media"></JMPlayer>
     </div>
     <ul class="post-tags"  v-if="model == 'full'">
-      <li class="active"><a href="#">狗子</a></li>
-      <li><a href="#">#Light</a></li>
-      <li><a href="#">#Light</a></li>
-      <li><a href="#">#Light</a></li>
-      <li><a href="#">#Light</a></li>
-      <li><a href="#">#Light</a></li>
+      <li class="active"><a href="#">{{post.category.name}}</a></li>
+      <li><a href="#">分享到微信</a></li>
+      <li><a href="#">分享到微博</a></li>
       <div class="social">
-        <JMIconBtn>3.2k</JMIconBtn>
-        <JMIconBtn icon="repost">100</JMIconBtn>
+        <JMIconBtn >{{post.like}}</JMIconBtn>
+        <JMIconBtn icon="eye" >{{post.views}}</JMIconBtn>
       </div>
     </ul>
-    <div class="post-footer" v-if="model == 'full'">
-      <JMShareBar>22,223 views</JMShareBar>
-    </div>
   </div>
 </template>
 <script>
 import JMIconBtn from "@/components/new2/JMIconBtn";
-import JMPlayer from "@/components/new/JMPlayer";
+import JMPlayer from "@/components/new2/JMPlayer";
 import JMShareBar from "@/components/new2/JMShareBar";
 
 export default {
@@ -58,6 +51,14 @@ export default {
     model: {
       type: String,
       default: 'full' // 显示模式，full 或者 min
+    },
+    post: {
+      type: Object,
+      default: {}
+    },
+    media: {
+      type: Object,
+      default: {}
     }
   }
 }
@@ -90,7 +91,7 @@ export default {
   &-tags {
     @include align-item;
     margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin-bottom: 3.5rem;
     border-bottom: 1px solid rgba(0,0,0,0.1);
     padding-bottom: .5rem;
     li {

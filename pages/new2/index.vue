@@ -4,20 +4,15 @@
       <ul>
         <li class="is-active"><a>热门</a></li>
         <li><a>最新</a></li>
-        <li><a>7日最佳</a></li>
       </ul>
     </div>
     <div class="columns">
       <div class="column is-two-thirds">
-        <JMPost></JMPost>
-        <JMPost></JMPost>
-        <JMPost></JMPost>
+        <JMPost v-for="item of posts.content" v-bind:key="item.id" :post="item" :media="item.medias[1]"></JMPost>
       </div>
       <div class="column">
-        <JMStory></JMStory>
-        <JMStory></JMStory>
-        <JMStory></JMStory>
-        <a class="button is-fullwidth">更多合集</a>
+        <JMStory v-for="item of storys.content" v-bind:key="item.id" :data="item"></JMStory>
+        <a class="button is-fullwidth">更多故事</a>
       </div>
     </div>
 </div>
@@ -28,6 +23,11 @@ import JMPost from "@/components/new2/JMPost";
 import JMStory from "@/components/new2/JMStory";
 export default {
   components: {JMPost, JMStory},
-  layout: "new1"
+  layout: "new1",
+  async asyncData({ $axios }) {
+    const posts = await $axios.$get("/post/hot/1");
+    const storys = await $axios.$get("/story/newest");
+    return {posts: posts.data, storys: storys.data};
+  }
 };
 </script>

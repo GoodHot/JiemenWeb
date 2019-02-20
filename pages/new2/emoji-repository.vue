@@ -19,6 +19,30 @@
     <figure class="image is-128x128">
       <img src="https://bulma.io/images/placeholders/128x128.png">
     </figure>
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
   </div>
 </div>
 </template>
@@ -31,3 +55,17 @@ export default {
   layout: "new1"
 };
 </script>
+<style lang="scss" scoped>
+.emojis {
+  figure {
+    padding: .3rem;
+    margin: .2rem;
+    display: inline-block;
+    border: 1px solid #fff;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid #ddd;
+    }
+  }
+}
+</style>

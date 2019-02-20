@@ -8,19 +8,19 @@
   </div>
   <div class="columns">
     <div class="column">
+      <!-- <JMStory></JMStory>
       <JMStory></JMStory>
-      <JMStory></JMStory>
-      <JMStory></JMStory>
+      <JMStory></JMStory> -->
     </div>
     <div class="column">
+      <!-- <JMStory></JMStory>
       <JMStory></JMStory>
-      <JMStory></JMStory>
-      <JMStory></JMStory>
+      <JMStory></JMStory> -->
     </div>
     <div class="column">
+      <!-- <JMStory></JMStory>
       <JMStory></JMStory>
-      <JMStory></JMStory>
-      <JMStory></JMStory>
+      <JMStory></JMStory> -->
     </div>
   </div>
 </div>

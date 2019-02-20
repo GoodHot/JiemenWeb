@@ -1,12 +1,31 @@
 <template>
-  <div class="jm-player">
+  <div class="jm-player" v-if="media.type == 'VIDEO'">
     <div class="video">
-      <video preload="auto" poster="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460swp.webp" loop="loop" width="500" style="min-height: 497.826px; width: 500px;"><!----> <source src="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460svvp9.webm" type="video/webm"> <source src="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460sv.mp4" type="video/mp4"> <source src="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460svwm.webm" type="video/webm"></video>
+      <video preload="auto" :poster="util.url(media.posterUrl)" loop="loop" muted >
+        <source src="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460svvp9.webm" type="video/webm">
+        <source src="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460sv.mp4" type="video/mp4">
+        <source src="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460svwm.webm" type="video/webm">
+      </video>
       <button class="presenting" ><span class="play">GIF</span></button>
     </div>
   </div>
 </template>
-
+<script>
+import util from '../../util/util';
+export default {
+  props: {
+    media: {
+      type: Object,
+      default: {}
+    }
+  },
+  data(){
+    return {
+      util: util
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 .jm {
   &-player {
