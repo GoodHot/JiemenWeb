@@ -1,12 +1,10 @@
 <template>
   <div class="jm-player" v-if="media.type == 'VIDEO'">
     <div class="video">
-      <video preload="auto" :poster="util.url(media.posterUrl)" loop="loop" muted >
-        <source src="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460svvp9.webm" type="video/webm">
-        <source src="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460sv.mp4" type="video/mp4">
-        <source src="https://img-9gag-fun.9cache.com/photo/a2ZW79d_460svwm.webm" type="video/webm">
+      <video preload="auto" :poster="util.url(media.posterUrl)" loop="loop" muted @click="pauseGIF" >
+        <source :src="util.url(media.url)" type="video/mp4">
       </video>
-      <button class="presenting" ><span class="play">GIF</span></button>
+      <button class="presenting" @click="playGIF" v-show="shopPresenting" ><span class="play">GIF</span></button>
     </div>
   </div>
 </template>
@@ -21,7 +19,24 @@ export default {
   },
   data(){
     return {
-      util: util
+      util: util,
+      shopPresenting: true
+    }
+  },
+  methods: {
+    playGIF(e){
+      let video = e.currentTarget.previousElementSibling;
+      if(video.paused){
+        video.play();
+        this.shopPresenting = false;
+      }
+    },
+    pauseGIF(e){
+      let video = e.currentTarget;
+      if(!video.paused){
+        video.pause();
+        this.shopPresenting = true;
+      }
     }
   }
 }
@@ -41,6 +56,7 @@ export default {
         font-size: 0;
         display: block;
         margin: 0 auto;
+        cursor: pointer;
       }
       .presenting {
         position: relative;

@@ -18,19 +18,15 @@
       <div class="author-title">
         <h6>{{post.title}}</h6>
         <span class="name">
-          created by <a href="#">小王王</a>
+          <a href="#">强迫症</a> @ 1 min ago
         </span>
-      </div>
-      <div class="social">
-        <JMIconBtn>{{post.like}}</JMIconBtn>
-        <JMIconBtn icon="eye" >{{post.views}}</JMIconBtn>
       </div>
     </div>
     <div class="post-player">
       <JMPlayer :media="media"></JMPlayer>
     </div>
     <ul class="post-tags"  v-if="model == 'full'">
-      <li class="active"><a href="#">{{post.category.name}}</a></li>
+      <!-- <li class="active"><a href="#">{{post.category.name}}</a></li> -->
       <li><a href="#">分享到微信</a></li>
       <li><a href="#">分享到微博</a></li>
       <div class="social">

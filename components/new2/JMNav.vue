@@ -12,15 +12,8 @@
         </i>
         热门
       </li>
-      <li class="item-icon">
-        <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.793 4.79297C16.4023 5.18335 16.4023 5.81665 16.793 6.20703L17.5859 7H17C14.7966 7 12.7219 8.03735 11.3999 9.80005L11 10.3333L10.6001 9.80005C9.27808 8.03735 7.20337 7 5 7H4C3.44775 7 3 7.44775 3 8C3 8.55225 3.44775 9 4 9H5C6.57373 9 8.05566 9.74097 9 11L9.75 12L9 13C8.05566 14.259 6.57373 15 5 15H4C3.44775 15 3 15.4478 3 16C3 16.5522 3.44775 17 4 17H5C7.20337 17 9.27808 15.9626 10.6001 14.2L11 13.6667L11.3999 14.2C12.7219 15.9626 14.7966 17 17 17H17.5859L16.793 17.793C16.4023 18.1833 16.4023 18.8167 16.793 19.207C17.1833 19.5977 17.8167 19.5977 18.207 19.207L20.707 16.707C21.0977 16.3167 21.0977 15.6833 20.707 15.293L18.207 12.793C17.8167 12.4023 17.1833 12.4023 16.793 12.793C16.4023 13.1833 16.4023 13.8167 16.793 14.207L17.5859 15H17C15.4263 15 13.9443 14.259 13 13L12.25 12L13 11C13.9443 9.74097 15.4263 9 17 9H17.5859L16.793 9.79297C16.4023 10.1833 16.4023 10.8167 16.793 11.207C17.1833 11.5977 17.8167 11.5977 18.207 11.207L20.707 8.70703C21.0977 8.31665 21.0977 7.68335 20.707 7.29297L18.207 4.79297C17.8167 4.40234 17.1833 4.40234 16.793 4.79297Z" fill="#999999"></path>
-        </svg>
-        </i>
-        随机
-      </li>
       
-      <li class="item-hr"></li>
+      <!-- <li class="item-hr"></li>
 
       <li class="item-icon">
         <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -35,7 +28,7 @@
         </svg>
         </i>
         我的收藏
-      </li>
+      </li> -->
       
       <li class="item-hr"></li>
 
@@ -64,7 +57,7 @@
       <li class="item-hr"></li>
 
       <li class="item-category" v-for="item of category" v-bind:key="item.id">
-        <a href="#">
+        <a :href="`/new2/category/${item.ename}`">
         <img src="https://bulma.io/images/placeholders/128x128.png">
         {{item.name}}
         </a>
@@ -77,12 +70,6 @@
         <a href="#">Blog</a>
         <a href="#">Apps</a>
         <a href="#">Help</a>
-        <a href="#">Help</a>
-        <a href="#">Help</a>
-        <a href="#">Help</a>
-        <a href="#">Apps</a>
-        <a href="#">Apps</a>
-        <a href="#">Apps</a>
       </li>
       <li class="item-text"><a href="http://www.miibeian.gov.cn/">陇ICP备19000187号-1</a></li>
       <li class="item-text"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51012202000426">川公网安备 51012202000426</a></li>
