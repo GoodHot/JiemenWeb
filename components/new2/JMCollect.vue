@@ -1,12 +1,12 @@
 <template>
   <div class="jm-story">
-    <img src="https://coubsecure-s.akamaihd.net/get/b34/p/coub/simple/cw_timeline_pic/da4ae8aae0b/6b48e9ccb66949f6f0320/big_1517460908_image.jpg" alt="">
+    <img :src="collect.cover.posterUrl" alt="">
     <span class="cover"></span>
     <div class="category">
-      <span>趣闻</span>&nbsp;&nbsp;|&nbsp;&nbsp;狗子
+      <span>合集</span>&nbsp;&nbsp;|&nbsp;&nbsp;2019/01/01
     </div>
     <div class="description">
-      <h2>"Avengers: Endgame" Trailers Will Only Show Footage From The First 20 Minutes</h2>
+      <h2>{{collect.title}}</h2>
       <div>by
         <span class="hbold">Mashups</span>&nbsp;·&nbsp;1613 views
       </div>
@@ -14,6 +14,16 @@
     <a href="/new2/news-detail" class="link"></a>
   </div>
 </template>
+<script>
+export default {
+  props: {
+    collect: {
+      type: Object,
+      default: {}
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .jm {
@@ -29,7 +39,6 @@
       left: 0;
       position: absolute;
       width: 100%;
-      height: 100%;
     }
     .description {
       position: absolute;

@@ -1,10 +1,15 @@
 <template>
-  <div class="jm-player" v-if="media.type == 'VIDEO'">
-    <div class="video">
-      <video preload="auto" :poster="util.url(media.posterUrl)" loop="loop" muted @click="pauseGIF" >
-        <source :src="util.url(media.url)" type="video/mp4">
-      </video>
-      <button class="presenting" @click="playGIF" v-show="shopPresenting" ><span class="play">GIF</span></button>
+  <div>
+    <div class="jm-player" v-if="media.type == 'VIDEO'">
+      <div class="video">
+        <video preload="auto" :poster="util.url(media.posterUrl)" loop="loop" muted @click="pauseGIF" >
+          <source :src="util.url(media.url)" type="video/mp4">
+        </video>
+        <button class="presenting" @click="playGIF" v-show="shopPresenting" ><span class="play">GIF</span></button>
+      </div>
+    </div>
+    <div class="jm-text" v-if="media.type == 'TEXT'">
+      {{media.text}}
     </div>
   </div>
 </template>
@@ -43,6 +48,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .jm {
+  &-text {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
   &-player {
     position: relative;
     border-radius: 6px;
